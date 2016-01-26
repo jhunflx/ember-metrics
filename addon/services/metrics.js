@@ -83,6 +83,18 @@ export default Service.extend({
     this.invoke('trackPage', ...args);
   },
 
+  peopleSet(...args) {
+    this.invoke('peopleSet', ...args);
+  },
+
+  peopleSetOnce(...args) {
+    this.invoke('peopleSetOnce', ...args);
+  },
+
+  trackLinks(...args) {
+    this.invoke('trackLinks', ...args);
+  },
+
   /**
    * Instantiates the adapters specified in the configuration and caches them
    * for future retrieval.

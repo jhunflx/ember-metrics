@@ -69,6 +69,31 @@ export default BaseAdapter.extend({
     }
   },
 
+  peopleSet(options = {}) {
+    const compactedOptions = compact(options);
+
+    window.mixpanel.people.set(compactedOptions);
+  },
+
+  peopleSetOnce(options = {}) {
+    const compactedOptions = compact(options);
+
+    window.mixpanel.people.set_once(compactedOptions);
+  },
+
+  trackLinks(options ={}) {
+    const compactedOptions = compact(options);
+    const { query, eventName } = compactedOptions;
+    const props = without(compactedOptions, 'query');
+    props.without(compactedOptions, 'eventName');
+
+    if (isPresent(props)) {
+      window.mixpanel.track(query, eventName, props);
+    } else {
+      window.mixpanel.track(query, eventName);
+    }
+  },
+
   willDestroy() {
     $('script[src*="mixpanel"]').remove();
     delete window.mixpanel;

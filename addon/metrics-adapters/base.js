@@ -39,5 +39,8 @@ export default emberObject.extend({
   identify: K,
   trackEvent: K,
   trackPage: K,
-  alias: K
+  alias: K,
+  peopleSet: K,
+  peopleSetOnce: K,
+  trackLinks: K
 });
